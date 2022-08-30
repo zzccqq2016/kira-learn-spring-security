@@ -1,12 +1,24 @@
-server:
-  port: 8888
+spring:
+  application:
+    name: oauth2-authorization-server-demo
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.35.251.170:3306/spring-security
+    username: root
+    password: Zhangxu00!
+    hikari:
 
-#spring:
-#  autoconfigure:
-#    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
-
-
-kira:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
   security:
-    login-success-url: /loginsuccess.html
-    login-failure-url: /loginfail.html
+    user:
+      name: user
+      password: 123456
+server:
+  port: 20000
