@@ -9,8 +9,6 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 /**
  * @author: Zhang Chaoqing
@@ -26,11 +24,6 @@ public class KiraAuthorizationServerConfigurerAdapter extends AuthorizationServe
     @Autowired
     private AuthenticationManager authenticationManager;
 
-
-    @Autowired
-    private TokenStore jwtTokenStore;
-    @Autowired
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -58,9 +51,5 @@ public class KiraAuthorizationServerConfigurerAdapter extends AuthorizationServe
         endpoints.allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST);
         // 配置认证管理器
         endpoints.authenticationManager(authenticationManager);
-        // JWT令牌转换器
-        endpoints.accessTokenConverter(jwtAccessTokenConverter);
-        // JWT 存储令牌
-        endpoints.tokenStore(jwtTokenStore);
     }
 }
