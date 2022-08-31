@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 /**
  * @author: Zhang Chaoqing
@@ -24,6 +25,10 @@ public class KiraAuthorizationServerConfigurerAdapter extends AuthorizationServe
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security) {
+        security.allowFormAuthenticationForClients();
+    }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
