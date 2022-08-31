@@ -12,15 +12,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringSecurityApplication {
 
-    //http://localhost:20000/oauth/authorize?client_id=client&client_secret=secret&response_type=code
-
+    /**
+     * 授权码模式
+     * <a href="http://localhost:20000/oauth/authorize?client_id=client&client_secret=secret&response_type=code">...</a>
+     * 简化模式
+     * <a href="http://localhost:20000/oauth/authorize?client_id=client&client_secret=secret&response_type=token">...</a>
+     *
+     * @param args args
+     */
     public static void main(String[] args) {
-        SpringApplication.run(SpringSecurityApplication.class,args);
+        SpringApplication.run(SpringSecurityApplication.class, args);
     }
-
-
-
-
 
 
 }
