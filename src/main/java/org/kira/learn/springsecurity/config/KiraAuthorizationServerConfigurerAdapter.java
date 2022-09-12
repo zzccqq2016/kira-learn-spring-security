@@ -53,7 +53,7 @@ public class KiraAuthorizationServerConfigurerAdapter extends AuthorizationServe
                 // 授权范围
                 .scopes("app")
                 // 注册回调地址
-                .redirectUris("http://localhost:20000/code");
+                .redirectUris("http://127.0.0.1:20001/gatewaylogin");
     }
 
 

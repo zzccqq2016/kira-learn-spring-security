@@ -22,3 +22,7 @@ spring:
       password: 123456
 server:
   port: 20000
+  servlet:
+    session:
+      cookie:
+        name: oauth-server
